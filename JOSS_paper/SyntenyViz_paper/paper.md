@@ -27,8 +27,8 @@ Visualizing the synteny across species not only enables intuitive examination an
 SyntenyViz provides a quick and easy visualisation of synteny across various species with transcriptomics evidence.
 
 # Methods
-
+The methods used in this study
 
 ![Single Synteny Plot](pics/Hsplot.png)
-![Multiple Synteny Plot](pic/Msplot.png)
+![Multiple Synteny Plot](pics/Msplot.png)
 # References
