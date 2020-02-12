@@ -18,7 +18,9 @@ jobs:
       - run: |
             echo "export PATH=${CIRCLE_WORKING_DIRECTORY}/${JOSSROOT}/.scripts:${PATH}" >> ${BASH_ENV}
             source ${BASH_ENV}
-      - run: ls -aRl 
+      - run: |
+            ls -aRl 
+            pwd
       - run: |
             cd "${CIRCLE_WORKING_DIRECTORY}/${JOSSROOT}/${J_PAPERROOT}"
             compile "${JOSSNAME}/paper.md"
