@@ -21,7 +21,7 @@ jobs:
             # pip install pandoc
             sudo apt-get update -y
             sudo apt-get install -y pandoc-citeproc
-            sudo apt-get install -y texlive-xetex
+            sudo apt-get install -y texlive-xetex texlive-fonts-recommended texlive-generic-recommended
             # sudo apt-get install -y pandoc
       - run: |
             wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
