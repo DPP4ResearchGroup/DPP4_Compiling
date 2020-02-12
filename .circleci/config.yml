@@ -16,6 +16,9 @@ jobs:
             key: depsJOSS-{{ .Branch }}-{{ checksum "Pipfile.lock" }} 
       - run: |
             cd $JOSSPATH
+            echo $JOSSPATH
+            echo $CIRCLE_WORKING_DIRECTORY
+            echo "${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}"
             bash ./scripts/compile paper.md	
       - save_cache:
             key: depsJOSS-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
