@@ -27,7 +27,7 @@ jobs:
             bash ~/miniconda.sh -p ${HOME}/.miniconda -b
             source ${HOME}/.miniconda/bin/activate
             conda init -q 
-            exec bash 
+            source "${HOME}/.bashrc" 
       - run: |
             conda install -c conda-forge pandoc
       - run: |
