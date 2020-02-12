@@ -1,14 +1,23 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-# Use a package of configuration called an orb.
-orbs:
-  # Declare a dependency on the welcome-orb
-  JOSS: circleci/welcome-orb@0.4.1
+
+jobs:
+  joss_build:
+    docker:
+      - image: circleci/python:3.6.2-jessie-browsers
+    environment: 
+      - JOSSPATH: JOSS_path
+    steps:
+      - checkout
+      - run: |
+	    cd $JOSSPATH
+	    bash ./scripts/compile paper.md	
+      - save_cache:
+      	  key: JOSS-cache
+
 # Orchestrate or schedule a set of jobs
 workflows:
-  # Name the workflow "welcome"
-  JOSS:
-    # Run the welcome/run job in its own container
+  version: 2
+  build:
     jobs:
-      - cd JOSS_paper
-      - bash .scripts/compile paper.md
+      - joss_build
