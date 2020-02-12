@@ -7,7 +7,7 @@ jobs:
       - image: circleci/python:3.6.2-jessie-browsers
     resource_class: small
     environment: 
-      - JOSSPATH: JOSS_paper
+      - JOSSPATH: $CIRCLE_WORKING_DIRECTORY/JOSS_paper
     steps:
       - checkout
       - run: sudo chown -R circleci:circleci /usr/local/bin
