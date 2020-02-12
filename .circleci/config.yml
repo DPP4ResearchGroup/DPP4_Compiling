@@ -5,16 +5,32 @@ jobs:
   joss_build:
     docker:
       - image: circleci/python:3.6.2-jessie-browsers
+    resource_class: small
     environment: 
-      - JOSSPATH: JOSS_path
+      - JOSSPATH: JOSS_paper
     steps:
       - checkout
+      - run: sudo chown -R circleci:circleci /usr/local/bin
+      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
+      - restore_cache:  # ensure this step occurs *before* installing dependencies
+            key: depsJOSS-{{ .Branch }}-{{ checksum "Pipfile.lock" }} 
       - run: |
             cd $JOSSPATH
             bash ./scripts/compile paper.md	
       - save_cache:
-            key: JOSS-cache
-            paths: ~/JOSS_paper
+            key: depsJOSS-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+            paths: 
+              - ".venv"
+              - "/usr/local/bin"
+              - "/usr/local/lib/python3.6/site-packages"
+      - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+          path: $JOSSPATH
+          destination: JOSS_PDF
+
+See Also
+
+Note: Use the chown command to grant CircleCI access to dependency locations.
+Run Tests
 
 # Orchestrate or schedule a set of jobs
 workflows:
