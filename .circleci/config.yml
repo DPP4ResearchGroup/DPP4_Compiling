@@ -31,7 +31,7 @@ jobs:
             echo "export PATH=${HOME}/${CONDAROOT_BIN_ROOT}:${PATH}" >> ${BASH_ENV}
       - run: |
             tlmgr init-usertree
-            tlmgr install marginnote graphicx xcolor etoolbox titlesec calc tikz hyperref caption tcolorbox amsmath 
+            tlmgr install marginnote graphicx xcolor etoolbox titlesec hyperref caption tcolorbox amsmath 
             tlmgr install biblatex logreq fixltx2e seqsplit xstring float
       - run: |
             conda install -c conda-forge pandoc
