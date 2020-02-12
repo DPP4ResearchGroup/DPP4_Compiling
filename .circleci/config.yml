@@ -10,10 +10,10 @@ jobs:
     steps:
       - checkout
       - run: |
-	    cd $JOSSPATH
-	    bash ./scripts/compile paper.md	
+            cd $JOSSPATH
+            bash ./scripts/compile paper.md	
       - save_cache:
-      	  key: JOSS-cache
+            key: JOSS-cache
 
 # Orchestrate or schedule a set of jobs
 workflows:
