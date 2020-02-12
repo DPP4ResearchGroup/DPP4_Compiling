@@ -20,7 +20,7 @@ jobs:
             pip install pandoc
             sudo apt-get update -y
             sudo apt-get install -y pandoc-citeproc
-            sudo apt-get install -y xelatex 
+            sudo apt-get install -y texlive-xetex 
       - run: |
             echo "export PATH=${HOME}/project/${JOSSROOT}/.scripts:${PATH}" >> ${BASH_ENV}
             source ${BASH_ENV}
