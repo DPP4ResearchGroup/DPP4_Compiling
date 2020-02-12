@@ -27,11 +27,6 @@ jobs:
           path: $JOSSPATH
           destination: JOSS_PDF
 
-See Also
-
-Note: Use the chown command to grant CircleCI access to dependency locations.
-Run Tests
-
 # Orchestrate or schedule a set of jobs
 workflows:
   version: 2
