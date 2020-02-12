@@ -7,18 +7,19 @@ jobs:
       - image: circleci/python:3.6.2-jessie-browsers
     resource_class: small
     environment: 
-      - JOSSPATH: $CIRCLE_WORKING_DIRECTORY/JOSS_paper
+      - JOSSPATH: "${CIRCLE_WORKING_DIRECTORY}/JOSS_paper"
     steps:
       - checkout
       - run: sudo chown -R circleci:circleci /usr/local/bin
       - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - restore_cache:  # ensure this step occurs *before* installing dependencies
-            key: depsJOSS-{{ .Branch }}-{{ checksum "Pipfile.lock" }} 
+            key: depsJOSS-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+      - run: |
+            echo "${JOSSPATH}"
+            echo "${CIRCLE_WORKING_DIRECTORY}"
+            echo "${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}"
       - run: |
             cd $JOSSPATH
-            echo $JOSSPATH
-            echo $CIRCLE_WORKING_DIRECTORY
-            echo "${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}"
             bash ./scripts/compile paper.md	
       - save_cache:
             key: depsJOSS-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
