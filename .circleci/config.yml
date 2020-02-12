@@ -14,6 +14,7 @@ jobs:
             bash ./scripts/compile paper.md	
       - save_cache:
             key: JOSS-cache
+            path: ~/JOSS_paper
 
 # Orchestrate or schedule a set of jobs
 workflows:
