@@ -29,7 +29,7 @@ jobs:
             conda init -q 
             source "${HOME}/.bashrc" 
       - run: |
-            conda install -c conda-forge pandoc
+            ./${HOME}/.miniconda/bin/conda install -c conda-forge pandoc
       - run: |
             echo "export PATH=${HOME}/project/${JOSSROOT}/.scripts:${PATH}" >> ${BASH_ENV}
             source ${BASH_ENV}
