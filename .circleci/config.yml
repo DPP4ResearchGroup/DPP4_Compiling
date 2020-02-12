@@ -31,8 +31,7 @@ jobs:
             echo "export PATH=${HOME}/${CONDAROOT_BIN_ROOT}:${PATH}" >> ${BASH_ENV}
       - run: |
             tlmgr init-usertree
-            sudo tlmgr install tools
-            tlmgr init-usertree
+            tlmgr install tools
             tlmgr update --self --all
             tlmgr install --user marginnote xcolor etoolbox titlesec hyperref caption tcolorbox amsmath iftex
             tlmgr install --user biblatex logreq seqsplit xstring float
