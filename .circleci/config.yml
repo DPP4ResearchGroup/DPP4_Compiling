@@ -27,7 +27,7 @@ jobs:
             source ${BASH_ENV}
       - run: |
             cd "${HOME}/project/${JOSSROOT}/${J_PAPERROOT}"
-            compile "${JOSSNAME}/paper.md"
+            compile paper.md
       - save_cache:
             key: depsJOSS-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
             paths: 
