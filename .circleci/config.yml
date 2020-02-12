@@ -27,7 +27,7 @@ jobs:
             bash ~/miniconda.sh -p ${HOME}/.miniconda -b
             source ${HOME}/.miniconda/bin/activate
             conda init -q 
-            source ${HOME}/.bashrc
+            exec bash 
       - run: |
             conda install -c conda-forge pandoc
       - run: |
@@ -44,7 +44,7 @@ jobs:
               - "/usr/local/lib/python3.6/site-packages"
               - "${HOME}/.miniconda"
       - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: $JOSSPATH
+          path: $JOSSROOT
           destination: JOSS_PDF
 
 # Orchestrate or schedule a set of jobs
