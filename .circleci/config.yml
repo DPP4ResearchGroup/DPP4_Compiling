@@ -33,8 +33,8 @@ jobs:
             tlmgr init-usertree
             tlmgr install tools
             tlmgr update --self --all
-            tlmgr install --user marginnote xcolor etoolbox titlesec hyperref caption tcolorbox amsmath iftex
-            tlmgr install --user biblatex logreq seqsplit xstring float
+            tlmgr install marginnote xcolor etoolbox titlesec hyperref caption tcolorbox amsmath iftex
+            tlmgr install biblatex logreq seqsplit xstring float
       - run: |
             conda install -c conda-forge texlive-core
             conda install -c conda-forge pandoc
