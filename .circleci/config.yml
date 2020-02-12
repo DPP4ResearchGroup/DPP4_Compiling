@@ -30,6 +30,8 @@ jobs:
             conda init -q
             echo "export PATH=${HOME}/${CONDAROOT_BIN_ROOT}:${PATH}" >> ${BASH_ENV}
       - run: |
+            tlmgr install biblatex
+      - run: |
             conda install -c conda-forge pandoc
       - run: |
             echo "export PATH=${HOME}/project/${JOSSROOT}/.scripts:${PATH}" >> ${BASH_ENV}
@@ -43,9 +45,9 @@ jobs:
               - ".venv"
               - "/usr/local/bin"
               - "/usr/local/lib/python3.6/site-packages"
-              - "${HOME}/.miniconda"
+              - "home/circleci/.miniconda"
       - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: $JOSSROOT
+          path: "${JOSSROOT}/${J_PAPERROOT}"
           destination: JOSS_PDF
 
 # Orchestrate or schedule a set of jobs
