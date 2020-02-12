@@ -31,7 +31,7 @@ jobs:
             echo "export PATH=${HOME}/${CONDAROOT_BIN_ROOT}:${PATH}" >> ${BASH_ENV}
       - run: |
             tlmgr init-usertree
-            tlmgr install marginnote xcolor etoolbox titlesec hyperref caption tcolorbox amsmath ifxetex
+            tlmgr install marginnote xcolor etoolbox titlesec hyperref caption tcolorbox amsmath ifluatex
             tlmgr install biblatex logreq seqsplit xstring float
       - run: |
             conda install -c conda-forge texlive-core
