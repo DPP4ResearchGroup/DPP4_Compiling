@@ -6,7 +6,7 @@ jobs:
     docker:
       - image: circleci/python:3.6.9-stretch
     resource_class: small
-    environment: 
+    environment:
       - JOSSROOT:  JOSS_paper
       - J_PAPERROOT: SyntenyViz_paper
       - CONDA_BIN_ROOT: .miniconda/miniconda3/bin
@@ -21,9 +21,9 @@ jobs:
             # pip install pandoc
             sudo apt-get update -y
             sudo apt-get install -y pandoc-citeproc
-            sudo apt-get install -y texlive-xetex 
+            sudo apt-get install -y texlive-xetex
             # sudo apt-get install -y pandoc
-      - run: | 
+      - run: |
             wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
             bash ~/miniconda.sh -p ${HOME}/.miniconda -b
             source ${HOME}/.miniconda/bin/activate
@@ -31,7 +31,8 @@ jobs:
             echo "export PATH=${HOME}/${CONDAROOT_BIN_ROOT}:${PATH}" >> ${BASH_ENV}
       - run: |
             tlmgr init-usertree
-            tlmgr install biblatex logreq
+            tlmgr marginnote graphicx xcolor authblk etoolbox titlesec calc tikz hyperref caption tcolorbox amssymb amsmath ifxetex ifluatex
+            tlmgr install biblatex logreq fixltx2e seqsplit xstring float
       - run: |
             conda install -c conda-forge pandoc
       - run: |
@@ -42,7 +43,7 @@ jobs:
             compile paper.md
       - save_cache:
             key: depsJOSS-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
-            paths: 
+            paths:
               - ".venv"
               - "/usr/local/bin"
               - "/usr/local/lib/python3.6/site-packages"
