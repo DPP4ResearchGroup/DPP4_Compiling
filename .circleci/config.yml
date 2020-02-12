@@ -7,7 +7,7 @@ jobs:
       - image: circleci/python:3.6.2-jessie-browsers
     resource_class: small
     environment: 
-      - JOSSPATH: "${CIRCLE_WORKING_DIRECTORY}/JOSS_paper"
+      - JOSSPATH: "${CIRCLE_WORKING_DIRECTORY}/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/JOSS_paper"
     steps:
       - checkout
       - run: sudo chown -R circleci:circleci /usr/local/bin
@@ -16,8 +16,7 @@ jobs:
             key: depsJOSS-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run: |
             echo "${JOSSPATH}"
-            echo "${CIRCLE_WORKING_DIRECTORY}"
-            echo "${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}"
+            ls -aRl
       - run: |
             cd $JOSSPATH
             bash ./scripts/compile paper.md	
