@@ -9,6 +9,7 @@ jobs:
     environment: 
       - JOSSROOT:  JOSS_paper
       - J_PAPERROOT: SyntenyViz_paper
+      - CONDA_BIN_ROOT: .miniconda/miniconda3/bin
     steps:
       - checkout
       - run: sudo chown -R circleci:circleci /usr/local/bin
@@ -26,10 +27,10 @@ jobs:
             wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
             bash ~/miniconda.sh -p ${HOME}/.miniconda -b
             source ${HOME}/.miniconda/bin/activate
-            conda init -q 
-            source "${HOME}/.bashrc" 
+            conda init -q
+            echo "export PATH=${HOME}/${CONDAROOT_BIN_ROOT}:${PATH}" >> ${BASH_ENV}
       - run: |
-            ./${HOME}/.miniconda/bin/conda install -c conda-forge pandoc
+            conda install -c conda-forge pandoc
       - run: |
             echo "export PATH=${HOME}/project/${JOSSROOT}/.scripts:${PATH}" >> ${BASH_ENV}
             source ${BASH_ENV}
