@@ -16,6 +16,8 @@ jobs:
       - restore_cache:  # ensure this step occurs *before* installing dependencies
             key: depsJOSS-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run: |
+            pip install pandoc pandoc-citeproc xelatex
+      - run: |
             echo "export PATH=${HOME}/project/${JOSSROOT}/.scripts:${PATH}" >> ${BASH_ENV}
             source ${BASH_ENV}
       - run: |
