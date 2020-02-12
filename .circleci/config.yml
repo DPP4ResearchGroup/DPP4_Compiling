@@ -7,7 +7,8 @@ jobs:
       - image: circleci/python:3.6.2-jessie-browsers
     resource_class: small
     environment: 
-      - JOSSPATH: "${CIRCLE_WORKING_DIRECTORY}/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/JOSS_paper"
+      - JOSSPATH: ${HOME}/project/${CIRCLE_WORKING_DIRECTORY}/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/JOSS_paper
+      - PAPERPATH: SyntenyViz_paper
     steps:
       - checkout
       - run: sudo chown -R circleci:circleci /usr/local/bin
@@ -17,9 +18,11 @@ jobs:
       - run: |
             echo "${JOSSPATH}"
             ls -aRl
+            pwd
       - run: |
-            cd $JOSSPATH
-            bash ./scripts/compile paper.md	
+            cd "${JOSSPATH}/{PAPERPATH}"
+            export PATH=${JOSSPATH}/.scripts:${PATH}
+            bash compile "${JOSSNAME}/paper.md"
       - save_cache:
             key: depsJOSS-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
             paths: 
