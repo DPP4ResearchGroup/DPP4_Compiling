@@ -3,11 +3,12 @@ version: 2.1
 # Use a package of configuration called an orb.
 orbs:
   # Declare a dependency on the welcome-orb
-  welcome: circleci/welcome-orb@0.4.1
+  JOSS: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"
-  welcome:
+  JOSS:
     # Run the welcome/run job in its own container
     jobs:
-      - welcome/run
+      - cd JOSS_paper
+      - bash .scripts/compile paper.md
