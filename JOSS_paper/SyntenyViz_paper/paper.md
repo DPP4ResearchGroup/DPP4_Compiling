@@ -46,6 +46,7 @@ Analysing workflow:
 It is also possible to construct all synteny graph (single and multi) using a single function `multiplot` as long the multi-synteny query is defined.
 
 ![Single Synteny Plot\label{Hsplot}](pics/Hsplot.png)
+
 ![Multiple Synteny Plot\label{Msplot}](pics/Msplot.png)
 
 # References
