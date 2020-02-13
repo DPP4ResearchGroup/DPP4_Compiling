@@ -49,7 +49,7 @@ jobs:
               - "home/circleci/.miniconda"
               - "home/circleci/texmf"
       - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-            path: ${JOSSROOT}/${J_PAPERROOT}
+            path: JOSS_paper
             destination: JOSS_PDF
 # Orchestrate or schedule a set of jobs
 workflows:
