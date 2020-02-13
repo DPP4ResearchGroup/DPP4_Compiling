@@ -47,6 +47,6 @@ It is also possible to construct all synteny graph (single and multi) using a si
 
 ![Single Synteny Plot\label{Hsplot}](pics/Hsplot.png)
 
-![Multiple Synteny Plot\label{Msplot}](pics/Msplot.png)
+![Multiple Synteny Conservation Plot\label{Msplot}](pics/Msplot.png)
 
 # References
