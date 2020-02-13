@@ -37,15 +37,15 @@ Analysing workflow:
 2. To transform target range into GRange form using function `coordFormat`.
 3. To download UCSC transcriptomics evidence databases and annotation databases for target organism(s) using function `getPkgs`
 4. __Optional Step:__ To generate annotated synteny tracks for defined organism around defined range.
-5. To synthesise single synteny plot using function `synvizPlot` (as in Figure \ref{fig-Hsplot}).
+5. To synthesise single synteny plot using function `synvizPlot` (as in Figure \ref{Hsplot}).
 6. To compare synteny conservation by constructing multi-synteny map on comparing organisms using function `multiplot`.
 
   1. To construct multi-synteny map, a multi-synteny query will need to be constructed using function `orgmsCollection.init` and `orgmsAdd`.
-  1. To construct synteny conservation map for multiple organisms via function `multiplot` (as in Figure \ref{fig-Msplot}).
+  1. To construct synteny conservation map for multiple organisms via function `multiplot` (as in Figure \ref{Msplot}).
 
 It is also possible to construct all synteny graph (single and multi) using a single function `multiplot` as long the multi-synteny query is defined.
 
-![Single Synteny Plot\label{fig-Hsplot}](pics/Hsplot.png)
-![Multiple Synteny Plot\label{fig-Msplot}](pics/Msplot.png)
+![Single Synteny Plot\label{Hsplot}](pics/Hsplot.png)
+![Multiple Synteny Plot\label{Msplot}](pics/Msplot.png)
 
 # References
