@@ -49,8 +49,7 @@ jobs:
               - "/usr/local/lib/python3.6/site-packages"
               - "home/circleci/.miniconda"
       - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: "${JOSSROOT}/${J_PAPERROOT}"
-          destination: JOSS_PDF
+          destination: "${JOSSROOT}/${J_PAPERROOT}"
 
 # Orchestrate or schedule a set of jobs
 workflows:
