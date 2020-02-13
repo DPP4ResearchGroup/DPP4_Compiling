@@ -34,8 +34,8 @@ jobs:
             tlmgr install marginnote xcolor etoolbox titlesec hyperref caption tcolorbox amsmath iftex
             tlmgr install biblatex logreq seqsplit xstring float
             conda install -c conda-forge texlive-core -y
-            conda install -c conda-forge/label/cf201901 pandoc
-            
+            conda install -c conda-forge/label/cf201901 pandoc -y
+
             echo "export PATH=${HOME}/project/${JOSSROOT}/.scripts:${PATH}" >> ${BASH_ENV}
             source ${BASH_ENV}
 
