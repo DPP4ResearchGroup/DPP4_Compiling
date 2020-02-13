@@ -17,6 +17,7 @@ date: 9 January 2020
 bibliography: paper.bib
 ---
 # Abstract
+`SyntenyViz` is a R package that define an analysing pipeline that enable visualising the synteny conservation across species.  `SyntenyViz` enables not only intuitive examination of synteny features and facilitates reconstruction effort of ancestral genomes, but also allows more direct interrogation of gene regulations and gene structures within a gene cluster.
 
 # Introduction
 A gene is the most basic inheritable functional unit in biology. An eukaryotic organism typically possesses a large number of protein coding genes ranging from few thousands to 30 thousands. [@pray2008eukaryotic] Genes in an organism tend to self-organise into clusters, synteny describes this physical arrangement and distribution of genetic loci on the chromosome.
@@ -30,8 +31,19 @@ Visualising the synteny within species and across species can enable intuitive e
 # Methods
 `SyntenyViz` encapsulates a workflow to extract and annotate synteny from a given organism and target gene range. As in current release (i.e. v0.0.0.9000), 13 organisms can be examined on (detail can be explored via `orgmOrgDB` after loading the package).
 
+Analysing workflow:
+1. To define target organism and target range for investigation in the format of _<chromosome_number>:<start>:<end>_.
+2. To transform target range into GRange form using function `coordFormat`.
+3. To download UCSC transcriptomics evidence databases and annotation databases for target organism(s) using function `getPkgs`
+4. __Optional Step:__ To generate annotated synteny tracks for defined organism around defined range.
+5. To synthesise single synteny plot using function `synvizPlot` (as in Figure \ref{fig-Hsplot}).
+6. To compare synteny conservation by constructing multi-synteny map on comparing organisms using function `multiplot`.
+  1. To construct multi-synteny map, a multi-synteny query will need to be constructed using function `orgmsCollection.init` and `orgmsAdd`.
+  1. To construct synteny conservation map for multiple organisms via function `multiplot` (as in Figure \label{fig-Msplot}).
 
-![Single Synteny Plot](pics/Hsplot.png)
-![Multiple Synteny Plot](pics/Msplot.png)
+It is also possible to construct all synteny graph (single or multi) using a single function `multiplot` as long the multi-synteny query is defined.
+
+![Single Synteny Plot \label{fig-Hsplot}](pics/Hsplot.png)
+![Multiple Synteny Plot \label{fig-Msplot}](pics/Msplot.png)
 
 # References
