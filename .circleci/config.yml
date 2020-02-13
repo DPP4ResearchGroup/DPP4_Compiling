@@ -22,14 +22,13 @@ jobs:
             sudo apt-get update -y
             sudo apt-get install -y pandoc-citeproc
             sudo apt-get install -y texlive-xetex texlive-fonts-recommended texlive-generic-recommended
-            sudo apt-get install texlive-xetex
-      - run: |
+
             wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
             bash ~/miniconda.sh -p ${HOME}/.miniconda -b
             source ${HOME}/.miniconda/bin/activate
             conda init -q
             echo "export PATH=${HOME}/${CONDAROOT_BIN_ROOT}:${PATH}" >> ${BASH_ENV}
-      - run: |
+
             tlmgr init-usertree
             tlmgr install tools
             tlmgr update --self --all
@@ -37,10 +36,10 @@ jobs:
             tlmgr install biblatex logreq seqsplit xstring float
             conda install -c conda-forge texlive-core
             conda install -c conda-forge pandoc
-      - run: |
+
             echo "export PATH=${HOME}/project/${JOSSROOT}/.scripts:${PATH}" >> ${BASH_ENV}
             source ${BASH_ENV}
-      - run: |
+  
             cd "${HOME}/project/${JOSSROOT}/${J_PAPERROOT}"
             compile paper.md
       - save_cache:
