@@ -19,12 +19,13 @@ bibliography: paper.bib
 # Abstract
 
 # Introduction
-Synteny is the information about gene's distribution pattern on the chromosome.
-Synteny analysis is widely used in studying complex genomes, as comparative genomics allows the presence and possibly function of genes in a simpler, model organism to infer those in a more complex one. In eukaryotes, synteny and linkage are often conserved for a surprisingly extended period. For example, many synteny blocks have been found in humans and mice, although the two species diverged from a common ancestor about 75 million years ago. [@KAWASHIMA2019257]
+A gene is the most basic inheritable functional unit in biology. An eukaryotic organism typically possesses a large number of protein coding genes ranging from few thousands to 30 thousands. [@pray2008eukaryotic] Genes in an organism tend to self-organise into clusters, synteny describes this physical arrangement and distribution of genetic loci on the chromosome.
 
-Visualizing the synteny across species not only enables intuitive examination and facilitates reconstruction effort of ancestral genomes, but also allow more direct interrogation of gene regulations and gene structures within a gene cluster.
+Several studies have demonstrated the gene structures evolve in a gradual, chronological fashion and largely independent to coding gene evolution. [@Jaillon2004, @Mulley2004, @SONG2004459, @Yandell2006, @KAWASHIMA2019257] However, there is a tendency for genes that are co-localised in a close proximity conserve its gene structures throughout evolution. In eukaryotes for incident, synteny and linkage are often conserved for an extended period of time. Although human and mouse diverged 75 million years ago, a recent study by @KAWASHIMA2019257 demonstrated that many synteny blocks are conserved in both species. Study the information of synteny conservation also provides us tools to analyse complex genome functions, as synteny conservation will likely to allow us to study gene functions in a simpler, model organism and infer to a more complex one.
 
-SyntenyViz provides a quick and easy visualisation of synteny across various species with transcriptomics evidence.
+Visualising the synteny within species and across species can enable intuitive examination of gene structures and conservation across species, which in turn offer not only unique insights and facilitates reconstruction effort of ancestral genomes, but also allow more direct interrogation of gene regulations and gene loci co-localisation within a gene cluster.
+
+SyntenyViz is a R package that not only allow direct extraction and annotation of full synteny blocks with extensive transcriptomics evidence from 11 organisms (as version 0.0.0.9000 stands), but also offers visualisation functions to plot both single and multiple synteny graphs with ease.
 
 # Methods
 The methods used in this study
