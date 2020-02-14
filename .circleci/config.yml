@@ -66,7 +66,7 @@ jobs:
            # cd "${GIT_ROOT}"
            # export lastLog=$(git log --format="%H" -n 1)
            # cloc $lastLog > cloc_log.log
-           cloc "${GIT_ROOT}" > jekyll_collection/cloc_log.log
+           cloc "${GIT_ROOT}" > "${GIT_ROOT}/jekyll_collection/cloc_log.log"
       - store_artifacts:
            path: SyntenyViz/jekyll_collection
            destination: Syn_Log
