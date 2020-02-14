@@ -63,6 +63,7 @@ jobs:
       - run: |
            git clone ${GIT_URL}
            sudo apt-get install cloc -y
+           ls -aRl
            cd "${GIT_ROOT}"
            export lastLog=$(git log --format="%H" -n 1)
            cloc $lastLog
