@@ -70,7 +70,7 @@ jobs:
            export lastLog=$(git log --format="%H" -n 1)
            echo $lastLog
            cloc $lastLog > cloc_log.log
-       - store_artifacts:
+      - store_artifacts:
            path: SyntenyViz
            destination: Syn_Log
 # Orchestrate or schedule a set of jobs
