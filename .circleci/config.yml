@@ -65,8 +65,14 @@ jobs:
            sudo apt-get install cloc -y
            ls -aRl
            cd "${GIT_ROOT}"
+           ls -aRl
+           pwd
            export lastLog=$(git log --format="%H" -n 1)
-           cloc $lastLog
+           echo $lastLog
+           cloc $lastLog > cloc_log.log
+       - store_artifacts:
+           path: SyntenyViz
+           destination: Syn_Log
 # Orchestrate or schedule a set of jobs
 workflows:
   version: 2
