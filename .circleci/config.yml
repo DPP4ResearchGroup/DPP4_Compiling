@@ -63,7 +63,7 @@ jobs:
       - run: |
            git clone ${GIT_URL}
            sudo apt-get install cloc -y
-           cd "${CIRCLE_WORKING_DIRECTORY}/${GIT_ROOT}"
+           cd "${GIT_ROOT}"
            export lastLog=$(git log --format="%H" -n 1)
            cloc $lastLog
 # Orchestrate or schedule a set of jobs
