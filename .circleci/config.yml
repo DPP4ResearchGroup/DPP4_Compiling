@@ -59,6 +59,7 @@ jobs:
       - checkout
       - run: |
            sudo apt-get install cloc -y
+           cd "${CIRCLE_WORKING_DIRECTORY}"
            export lastLog=$(git log --format="%H" -n 1)
            cloc $lastLog
 # Orchestrate or schedule a set of jobs
